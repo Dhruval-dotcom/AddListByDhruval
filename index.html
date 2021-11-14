@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dhruval add list</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+        <h1>Add and remove items list &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-by Dhruval</h1>
+        <form action="">
+            <input type="text" name="text" id="txt" required>
+            <button type="submit" class="btn-list">
+                <div class="sub">+</div>
+            </button>
+        </form>
+        <div class="container">
+            <ul>
+                <li>seize the day<span>x</span></li>
+                <li>home work<span>x</span></li>
+                <li>reading<span>x</span></li>
+                 
+            </ul>
+        </div>
+      </div>
+      <script>
+          const inputText=document.querySelector('#txt');
+          const myButton= document.querySelector('.btn-list');
+          const list=document.querySelector('.container ul');
+          myButton.addEventListener('click',(e)=>{
+              if(inputText.value != ""){
+                  e.preventDefault();
+
+                  const myLi = document.createElement('li');
+                  myLi.innerHTML = inputText.value;
+                  list.appendChild(myLi);
+
+                  const mySpan=document.createElement('span');
+                  mySpan.innerHTML='x';
+                  myLi.appendChild(mySpan);
+              }
+              const close= document.querySelectorAll('span');
+              for(let i=0;i<close.length;i++){
+                  close[i].addEventListener('click',()=>{
+                    close[i].parentElement.style.opacity=0;
+                      setTimeout(()=>{
+                        close[i].parentElement.style.opacity=0;
+                      },500);
+                      
+                  })
+              }
+              
+
+              inputText.value="";
+          });
+      </script>
+
+  </body>
+</html>
